@@ -10,6 +10,7 @@ let pageSix = document.getElementById('pageSix');
 var pagesArr = [
 ];
 
+// function to fill array, reset first page of array to be visible
 function init() {
     pagesArr = [
     pageOne,
@@ -21,6 +22,10 @@ function init() {
     ];
     setYourSymbol();
     setSymbols();
+    pagesArr[0].style.display = "block";
+    for (let i = 1; i <= pagesArr.length; i++ ) {
+        pagesArr[i].style.display = "none";
+    }
 }
 // create string for randomString
 var symbolString = '!@#$%^&*()_-+=?';
@@ -34,7 +39,6 @@ function pageSwitch() {
     // move first page to end of array, second page to front of array
     var firstToLast = pagesArr.push(pagesArr[0]);
     var lastFirst = pagesArr.shift();
-    // console.log(pagesArr);
 
     // make first page in array visible, last page invisible
     var firstItem = pagesArr[0];
@@ -74,12 +78,7 @@ function setYourSymbol() {
     document.getElementById('yourSymbol').innerHTML = yourSymbol;
 }
 
-setYourSymbol();
-
 // set random symbols in array
 function setSymbols() {
     document.getElementById('symbolArr').innerHTML = symbolArr;
 }
-
-
-
