@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>mindReader</title>
+</head>
+
+<body class="container">
+
+    <div class="row justify-content-center">
+        <div class="card text-center col-8" id="pageOne">
+            <h1 class="card-title display-1" style="color: gray">I can read your mind</h1>
+            <p class="card-text"></p>
+            <div class="float-end display-4">
+                <button onclick="pageSwitch()" class="btn btn-lg button-light mr-3"
+                    style="color: lightblue; border: 1px solid black; border-radius: 50%;">GO</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center">
+        <div class="card text-center col-8" id="pageTwo" style="display: none;">
+            <h1 class="card-title display-1" style="color: gray">Pick a number from 01 - 99</h1>
+            <button onclick="pageSwitch()" type="button" class="btn btn-info btn-lg btn-block col-8">Next</button>
+            <button onclick="pageSwitch()" class="btn btn-lg button-light mr-3"
+                style="color: lightblue; border: 1px solid black; border-radius: 50%;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z">
+                    </path>
+                    <path
+                        d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="card text-center col-8" id="pageThree" style="display: none;">
+                <h1 class="card-title display-1" style="color: gray">Add both digits together to get a new number</h1>
+                <button onclick="pageSwitch()" type="button" class="btn btn-info btn-lg btn-block col-8">Next</button>
+                <p class="card-text text-info">Ex: 14 is 1 + 4 = 5</p>
+                <p class="card-text text-info">click next to proceed</p>
+                <button onclick="pageSwitch()" class="btn btn-lg button-light mr-3"
+                    style="color: lightblue; border: 1px solid black; border-radius: 50%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z">
+                        </path>
+                        <path
+                            d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="row justify-content-center"></div>
+            <div class="card text-center col-8" id="pageFour" style="display: none;">
+                <h1 class="card-title display-1" style="color: gray">Subtract your new number from the original number
+                </h1>
+                <button onclick="pageSwitch(); setSymbols();" type="button"
+                    class="btn btn-info btn-lg btn-block col-8">Next</button>
+                <p class="card-text text-info">Ex: 14 - 5 = 9</p>
+                <p class="card-text text-info">click next to proceed</p>
+                <button onclick="pageSwitch()" class="btn btn-lg button-light mr-3"
+                    style="color: lightblue; border: 1px solid black; border-radius: 50%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z">
+                        </path>
+                        <path
+                            d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="row justify-content-center"></div>
+            <div class="card text-center col-8 row overflow-auto" id="pageFive" style="display: none;">
+                <h1 class="card-title display-1 overflow-scroll" style="color: gray;" id="symbolArr"></h1>
+                <button onclick="pageSwitch()" type="button" class="btn btn-info btn-lg btn-block col-8">REVEAL</button>
+                <p class="card-text text-info">Find your new number</p>
+                <p class="card-text text-info">Note the the symbol beside the number</p>
+                <button onclick="pageSwitch()" class="btn btn-lg button-light mr-3"
+                    style="color: lightblue; border: 1px solid black; border-radius: 50%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z">
+                        </path>
+                        <path
+                            d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="row justify-content-center"></div>
+            <div class="card text-center col-8" id="pageSix" style="display: none;">
+                <h1 class="card-title display-1" style="color: gray"></h1>
+                <p class="card-text text-info">Your symbol is: </p>
+                <h1 id="yourSymbol"></h1>
+                <button onclick="pageSwitch(); yourSymbol = setYourSymbol(); setSymbols()" type="button"
+                    class="btn btn-info btn-lg btn-block col-8">Play again?</button>
+                <button onclick="pageSwitch()" class="btn btn-lg button-light mr-3"
+                    style="color: lightblue; border: 1px solid black; border-radius: 50%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z">
+                        </path>
+                        <path
+                            d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+
+
+
+            <!-- Optional JavaScript; choose one of the two! -->
+            <script src="./js/main.js"></script>
+            <!-- Option 1: Bootstrap Bundle with Popper -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+                crossorigin="anonymous"></script>
+
+            <!-- Option 2: Separate Popper and Bootstrap JS -->
+            <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
