@@ -51,3 +51,9 @@ create mostly random array of numbers & symbols
 for numbers between 1 & 99
     add number to array as (number: (randomSymbol))
 IF array item is multiple of 9, replace with yourSymbol
+
+backToStart()
+    make current page hidden
+    WHILE loop through items in array
+        until firstPage is in first spot of array
+    change firstPage to display: block

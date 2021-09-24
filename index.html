@@ -13,7 +13,7 @@
     <title>mindReader</title>
 </head>
 
-<body class="container">
+<body onload="init()" class="container">
 
     <div class="row justify-content-center">
         <div class="card text-center col-8" id="pageOne">
@@ -31,7 +31,7 @@
         <div class="card text-center col-8" id="pageTwo" style="display: none;">
             <h1 class="card-title display-1" style="color: gray">Pick a number from 01 - 99</h1>
             <button onclick="pageSwitch()" type="button" class="btn btn-info btn-lg btn-block col-8">Next</button>
-            <button onclick="pageSwitch()" class="btn btn-lg button-light mr-3"
+            <button onclick="init()" class="btn btn-lg button-light mr-3"
                 style="color: lightblue; border: 1px solid black; border-radius: 50%;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
@@ -50,7 +50,7 @@
                 <button onclick="pageSwitch()" type="button" class="btn btn-info btn-lg btn-block col-8">Next</button>
                 <p class="card-text text-info">Ex: 14 is 1 + 4 = 5</p>
                 <p class="card-text text-info">click next to proceed</p>
-                <button onclick="pageSwitch()" class="btn btn-lg button-light mr-3"
+                <button onclick="init()" class="btn btn-lg button-light mr-3"
                     style="color: lightblue; border: 1px solid black; border-radius: 50%;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
@@ -71,7 +71,7 @@
                     class="btn btn-info btn-lg btn-block col-8">Next</button>
                 <p class="card-text text-info">Ex: 14 - 5 = 9</p>
                 <p class="card-text text-info">click next to proceed</p>
-                <button onclick="pageSwitch()" class="btn btn-lg button-light mr-3"
+                <button onclick="init()" class="btn btn-lg button-light mr-3"
                     style="color: lightblue; border: 1px solid black; border-radius: 50%;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
@@ -85,12 +85,12 @@
             </div>
 
             <div class="row justify-content-center"></div>
-            <div class="card text-center col-8 row overflow-auto" id="pageFive" style="display: none;">
+            <div class="card text-center col-8" id="pageFive" style="display: none;">
                 <h1 class="card-title display-1 overflow-scroll" style="color: gray;" id="symbolArr"></h1>
                 <button onclick="pageSwitch()" type="button" class="btn btn-info btn-lg btn-block col-8">REVEAL</button>
                 <p class="card-text text-info">Find your new number</p>
                 <p class="card-text text-info">Note the the symbol beside the number</p>
-                <button onclick="pageSwitch()" class="btn btn-lg button-light mr-3"
+                <button onclick="init()" class="btn btn-lg button-light mr-3"
                     style="color: lightblue; border: 1px solid black; border-radius: 50%;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
@@ -108,8 +108,6 @@
                 <h1 class="card-title display-1" style="color: gray"></h1>
                 <p class="card-text text-info">Your symbol is: </p>
                 <h1 id="yourSymbol"></h1>
-                <button onclick="pageSwitch(); yourSymbol = setYourSymbol(); setSymbols()" type="button"
-                    class="btn btn-info btn-lg btn-block col-8">Play again?</button>
                 <button onclick="pageSwitch()" class="btn btn-lg button-light mr-3"
                     style="color: lightblue; border: 1px solid black; border-radius: 50%;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

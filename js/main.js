@@ -8,16 +8,22 @@ let pageSix = document.getElementById('pageSix');
 
 // create array of pages
 var pagesArr = [
+];
+
+function init() {
+    pagesArr = [
     pageOne,
     pageTwo,
     pageThree, 
     pageFour,
     pageFive,
     pageSix
-];
-
+    ];
+    setYourSymbol();
+    setSymbols();
+}
 // create string for randomString
-var symbolString = '!@#$%^&*()';
+var symbolString = '!@#$%^&*()_-+=?';
 
 // variable for first and last items in array
 var firstItem = pagesArr[0];
@@ -50,7 +56,7 @@ console.log(yourSymbol)
 // array to hold symbols to display
 var symbolArr = [];
 
-// loop through numbers 1-99, push to symbolArr
+// loop through numbers 1-99, format and push to symbolArr
 for (let i = 0; i <= 99; i++) {
     var currentString = "";
     if (i % 9 === 0) {
@@ -59,11 +65,11 @@ for (let i = 0; i <= 99; i++) {
         currentString = i + ": " + randomSymbol();
     }
     symbolArr.push('<br>' + currentString);
-    } 
-    symbolString = symbolArr.join(',', '')
-    console.log(symbolArr)
+    
+    } console.log(symbolString);
+    
 
-    // set symbol to match to multiples of 9
+    // symbol to match to multiples of 9
 function setYourSymbol() {
     document.getElementById('yourSymbol').innerHTML = yourSymbol;
 }
@@ -74,3 +80,6 @@ setYourSymbol();
 function setSymbols() {
     document.getElementById('symbolArr').innerHTML = symbolArr;
 }
+
+
+
